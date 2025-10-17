@@ -1,0 +1,182 @@
+body {
+  background-color: black;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.pagina {
+  text-align: center;
+  width: min(90%, 600px);
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(255, 112, 112, 0.3);
+}
+
+h1 {
+  margin-bottom: 25px;
+  color: white;
+}
+
+.banderaPrincipal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.Bolivia {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  width: 220px;
+  height: 120px;
+  border: 2px solid white;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.Bolivia .rojo { 
+  background-color: red; 
+}
+
+.Bolivia .amarillo { 
+  background-color: yellow; 
+}
+.Bolivia .verde { 
+  background-color: green; 
+}
+
+.Bolivia .emblema {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  background: repeating-linear-gradient(
+    -45deg,
+    green 0 8px,
+    yellow 8px 16px,
+    red 16px 24px,
+    green 24px 32px
+  );
+  border-radius: 6px;
+  border: 2px solid white;
+}
+
+.nombrePrincipal {
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.banderas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.banderaSecundaria {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banderaSecundaria .bandera {
+  width: 100px;
+  height: 70px;
+  border-radius: 8px;
+  border: 2px solid white;
+  position: relative;
+  overflow: hidden;
+}
+
+.Mexico {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100px;
+  height: 70px;
+  border-radius: 8px;
+  border: 2px solid white;
+  overflow: hidden;
+}
+
+.Mexico div {
+  height: 100%;
+}
+
+.Mexico .verde {
+  background-color: green; 
+}
+
+.Mexico .blanco { background-color: white; position: relative; }
+.Mexico .rojo { background-color: red; 
+}
+
+.Mexico .blanco::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  width: 20px;
+  height: 20px;
+  background: rgb(42, 165, 42);
+  border-radius: 50%;
+}
+
+.Belice {
+  width: 100px;
+  height: 70px;
+  background: linear-gradient(to bottom, #c22f2f 15%, #003d8f 15%, #003d8f 85%, #c22f2f 85%);
+  border-radius: 8px;
+  border: 2px solid white;
+  position: relative;
+}
+
+.Belice::after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+}
+
+.Argentina {
+  width: 100px;
+  height: 70px;
+  background: linear-gradient(to bottom, #6ecff6 33%, white 33%, white 66%, #6ecff6 66%);
+  border-radius: 8px;
+  border: 2px solid white;
+  position: relative;
+}
+
+.Argentina::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 43px;
+  width: 15px;
+  height: 15px;
+  background: gold;
+  border-radius: 50%;
+}
+
+.nombre,
+.nombrePrincipal {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: white;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
