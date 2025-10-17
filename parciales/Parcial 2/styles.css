@@ -1,6 +1,6 @@
 body {
   background-color: black;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat';
   color: white;
   display: flex;
   justify-content: center;
@@ -11,12 +11,10 @@ body {
 
 .pagina {
   text-align: center;
-  width: min(90%, 600px);
   background-color: black;
   border: 2px solid white;
   border-radius: 20px;
   padding: 30px;
-  box-shadow: 0 0 15px rgba(255, 112, 112, 0.3);
 }
 
 h1 {
@@ -24,16 +22,23 @@ h1 {
   color: white;
 }
 
-.banderaPrincipal {
+.banderas {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bandera-principal {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .Bolivia {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
   width: 220px;
   height: 120px;
   border: 2px solid white;
@@ -49,6 +54,7 @@ h1 {
 .Bolivia .amarillo { 
   background-color: yellow; 
 }
+
 .Bolivia .verde { 
   background-color: green; 
 }
@@ -58,22 +64,21 @@ h1 {
   top: 50%;
   left: 50%;
   width: 40px;
-  height: 40px;
+  height: 30px;
   transform: translate(-50%, -50%);
   background: repeating-linear-gradient(
     -45deg,
-    green 0 8px,
-    yellow 8px 16px,
-    red 16px 24px,
-    green 24px 32px
+    green 0px 15px,
+    yellow 10px 30px,
+    red 25px 45px,
+    green 55px 60px
   );
   border-radius: 6px;
-  border: 2px solid white;
+  border: 2px solid brown;
 }
 
-.nombrePrincipal {
+.nombre-principal {
   margin-bottom: 30px;
-  font-weight: 600;
 }
 
 .banderas {
@@ -83,13 +88,13 @@ h1 {
   gap: 20px;
 }
 
-.banderaSecundaria {
+.bandera-secundaria {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.banderaSecundaria .bandera {
+.bandera-secundaria .bandera {
   width: 100px;
   height: 70px;
   border-radius: 8px;
@@ -103,52 +108,78 @@ h1 {
   grid-template-columns: repeat(3, 1fr);
   width: 100px;
   height: 70px;
+  position: relative;
   border-radius: 8px;
   border: 2px solid white;
   overflow: hidden;
 }
 
-.Mexico div {
-  height: 100%;
-}
-
 .Mexico .verde {
-  background-color: green; 
+  background-color: #006847; 
 }
 
-.Mexico .blanco { background-color: white; position: relative; }
-.Mexico .rojo { background-color: red; 
+.Mexico .blanco { 
+  background-color: white; 
+  position: relative; 
 }
 
-.Mexico .blanco::after {
-  content: "";
+.Mexico .rojo { 
+  background-color: red; 
+}
+
+.Mexico .emblema {
   position: absolute;
-  top: 25%;
-  left: 35%;
-  width: 20px;
-  height: 20px;
-  background: rgb(42, 165, 42);
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%, -50%);
+  background-color: #006847;
   border-radius: 50%;
+  border: 1px solid white;
 }
 
 .Belice {
+  display: flex;
+  flex-direction: column;
   width: 100px;
   height: 70px;
-  background: linear-gradient(to bottom, #c22f2f 15%, #003d8f 15%, #003d8f 85%, #c22f2f 85%);
   border-radius: 8px;
   border: 2px solid white;
+  overflow: hidden;
   position: relative;
+}
+
+.Belice .rojo1 {
+  background-color: red;
+  height: 10px;
+  width: 100%;
+}
+
+.Belice .azul {
+  background-color: #0038a8;
+  flex: 1;
+  width: 100%;
+  position: relative;
+}
+
+.Belice .rojo2 {
+  background-color: red;
+  height: 10px;
+  width: 100%;
 }
 
 .Belice::after {
   content: "";
   position: absolute;
-  top: 25px;
-  left: 40px;
-  width: 20px;
-  height: 20px;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
   background: white;
   border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #0038a8;
 }
 
 .Argentina {
@@ -171,12 +202,3 @@ h1 {
   border-radius: 50%;
 }
 
-.nombre,
-.nombrePrincipal {
-  margin-top: 8px;
-  font-size: 0.9em;
-  color: white;
-  border: none;
-  background: none;
-  box-shadow: none;
-}
