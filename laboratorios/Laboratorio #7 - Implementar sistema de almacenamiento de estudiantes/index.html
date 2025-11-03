@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de estudiantes</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="contenedor-main">
+    <h1>Registro de estudiantes</h1>
+
+    <!-- FORMULARIO -->
+    <form id="formEstudiante">
+      <label for="nombre">Nombre *</label>
+      <input type="text" id="nombre" placeholder="Ana Sofía" required>
+
+      <label for="apellido">Apellido *</label>
+      <input type="text" id="apellido" placeholder="González" required>
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" placeholder="ana@example.com" required>
+
+      <label for="edad">Edad *</label>
+      <input type="number" id="edad" min="18" max="100" placeholder="18" required>
+
+      <label for="carrera">Carrera *</label>
+      <select id="carrera" required>
+        <option value="">— Selecciona —</option>
+        <option>Ingeniería de Software</option>
+        <option>Administración</option>
+        <option>Diseño Gráfico</option>
+        <option>Medicina</option>
+      </select>
+
+      <button type="submit" class="btn-verde">Agregar estudiante</button>
+      <button type="button" class="btn-gris" id="btnLimpiar">Limpiar</button>
+    </form>
+
+    <!-- TABLA -->
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Edad</th>
+          <th>Carrera</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tablaBody">
+        <tr><td colspan="7" style="text-align:center;">No hay resultados.</td></tr>
+      </tbody>
+    </table>
+
+    <button class="btn-rojo" id="btnBorrarTodo">Borrar todo</button>
+  </div>
+
+  <script>
+    //Array
+    const estudiantes = [];
+
+    //Referencias a elementos del DOM
+    const form = document.getElementById("formEstudiante");
+    const tabla = document.getElementById("tablaBody");
+
+    //AGREGAR ESTUDIANTE
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); // Evita que la página se recargue
+
+      //Obtener los valores de los campos
+      const nombre = document.getElementById("nombre").value.trim();
+      const apellido = document.getElementById("apellido").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const edad = document.getElementById("edad").value.trim();
+      const carrera = document.getElementById("carrera").value;
+
+      if (nombre === "" || apellido === "" || email === "" || edad === "" || carrera === "") {
+        alert("Complete todos los campos primero.");
+        return;
+      }
+
+      //Crear y añadirlo al arreglo
+      const estudiante = { nombre, apellido, email, edad, carrera };
+      estudiantes.push(estudiante);
+
+      //Crear una fila nueva en la tabla
+      const fila = document.createElement("tr");
+      fila.innerHTML =
+        "<td>" + estudiantes.length + "</td>" +
+        "<td>" + nombre + "</td>" +
+        "<td>" + apellido + "</td>" +
+        "<td>" + email + "</td>" +
+        "<td>" + edad + "</td>" +
+        "<td>" + carrera + "</td>" +
+        '<td><button onclick="eliminar(this)">Eliminar</button></td>';
+
+      tabla.appendChild(fila);
+      form.reset(); // Limpia el formulario
+    });
+
+    // --- ELIMINAR ESTUDIANTE ---
+    function eliminar(boton) {
+      // boton → es el <button> dentro de la fila
+      const fila = boton.parentNode.parentNode; // sube al <tr>
+      const indice = fila.rowIndex - 1; // índice en la tabla
+      estudiantes.splice(indice, 1); // eliminar del array
+      fila.remove(); // eliminar la fila del HTML
+    }
+  </script>
+</body>
+</html>
