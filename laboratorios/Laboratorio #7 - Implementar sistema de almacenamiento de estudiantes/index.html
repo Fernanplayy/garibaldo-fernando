@@ -60,7 +60,7 @@
   </div>
 
   <script>
-    //Array
+    //ARRAY
     const estudiantes = [];
 
     //Referencias a elementos del DOM
@@ -69,9 +69,9 @@
 
     //AGREGAR ESTUDIANTE
     form.addEventListener("submit", function(e) {
-      e.preventDefault(); // Evita que la página se recargue
+      e.preventDefault(); 
 
-      //Obtener los valores de los campos
+      //SACAR LOS VALORES DE LOS CAMPOS
       const nombre = document.getElementById("nombre").value.trim();
       const apellido = document.getElementById("apellido").value.trim();
       const email = document.getElementById("email").value.trim();
@@ -83,11 +83,11 @@
         return;
       }
 
-      //Crear y añadirlo al arreglo
+      //CREAR Y AÑADIR EL VALOR
       const estudiante = { nombre, apellido, email, edad, carrera };
       estudiantes.push(estudiante);
 
-      //Crear una fila nueva en la tabla
+      //CREAR UNA FILA NUEVA EN LA TABLA
       const fila = document.createElement("tr");
       fila.innerHTML =
         "<td>" + estudiantes.length + "</td>" +
@@ -99,16 +99,15 @@
         '<td><button onclick="eliminar(this)">Eliminar</button></td>';
 
       tabla.appendChild(fila);
-      form.reset(); // Limpia el formulario
+      form.reset();
     });
 
-    // --- ELIMINAR ESTUDIANTE ---
+    //ELIMINAR ESTUDIANTE
     function eliminar(boton) {
-      // boton → es el <button> dentro de la fila
-      const fila = boton.parentNode.parentNode; // sube al <tr>
+      const fila = boton.parentNode.parentNode; 
       const indice = fila.rowIndex - 1; // índice en la tabla
       estudiantes.splice(indice, 1); // eliminar del array
-      fila.remove(); // eliminar la fila del HTML
+      fila.remove(); 
     }
   </script>
 </body>
